@@ -1,6 +1,4 @@
-// =========================
 // MOBILE MENU
-// =========================
 
 const menuToggle =
     document.querySelector(".menu-toggle");
@@ -14,9 +12,7 @@ menuToggle.addEventListener("click", () => {
 
 });
 
-// =========================
 // CLOSE MOBILE MENU
-// =========================
 
 document.querySelectorAll(".nav-links a")
 .forEach(link => {
@@ -29,9 +25,7 @@ document.querySelectorAll(".nav-links a")
 
 });
 
-// =========================
 // CURSOR GLOW
-// =========================
 
 const glow =
     document.querySelector(".cursor-glow");
@@ -46,12 +40,7 @@ document.addEventListener("mousemove", (e) => {
 
 });
 
-// =========================
 // HERO PARALLAX
-// =========================
-
-const hero =
-    document.querySelector(".hero");
 
 const heroLeft =
     document.querySelector(".hero-left");
@@ -70,19 +59,15 @@ document.addEventListener("mousemove", (e) => {
     const y =
         (window.innerHeight / 2 - e.clientY) / 25;
 
-    // HERO LEFT MOVEMENT
-
     heroLeft.style.transform =
+
         `translateX(${-x/2}px)
          translateY(${-y/2}px)`;
 
-    // HERO RIGHT MOVEMENT
-
     heroRight.style.transform =
+
         `translateX(${x/2}px)
          translateY(${y/2}px)`;
-
-    // IMAGE 3D TILT
 
     image.style.transform =
 
@@ -92,30 +77,29 @@ document.addEventListener("mousemove", (e) => {
 
 });
 
-// =========================
-// RESET SMOOTHLY
-// =========================
+// RESET
 
 document.addEventListener("mouseleave", () => {
 
     heroLeft.style.transform =
+
         `translateX(0px)
          translateY(0px)`;
 
     heroRight.style.transform =
+
         `translateX(0px)
          translateY(0px)`;
 
     image.style.transform =
+
         `rotateY(0deg)
          rotateX(0deg)
          scale(1)`;
 
 });
 
-// =========================
-// 3D CARD TILT
-// =========================
+// CARD TILT
 
 const cards =
     document.querySelectorAll(
@@ -171,9 +155,7 @@ cards.forEach(card => {
 
 });
 
-// =========================
 // BUTTON DEPTH EFFECT
-// =========================
 
 const buttons =
     document.querySelectorAll(".btn");
@@ -213,26 +195,7 @@ buttons.forEach(btn => {
 
 });
 
-// =========================
-// NAVBAR MOTION
-// =========================
-
-const navbar =
-    document.querySelector(".navbar");
-
-document.addEventListener("mousemove", (e) => {
-
-    const moveX =
-        (window.innerWidth / 2 - e.clientX) / 80;
-
-    navbar.style.transform =
-        `translateX(${-moveX}px)`;
-
-});
-
-// =========================
 // TYPING EFFECT
-// =========================
 
 const typingText = [
 
@@ -280,3 +243,24 @@ let letter = "";
     }
 
 })();
+// THEME TOGGLE
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("light-mode");
+
+    // ICON CHANGE
+
+    if(document.body.classList.contains("light-mode")){
+
+        themeToggle.textContent = "☀️";
+    }
+    else{
+
+        themeToggle.textContent = "🌙";
+    }
+
+});
