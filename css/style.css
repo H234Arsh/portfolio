@@ -1,5 +1,5 @@
 /* =========================
-FILE: css/style.css
+GLOBAL
 ========================= */
 
 *{
@@ -14,7 +14,11 @@ html{
 
 body{
 
-    font-family:'Poppins',sans-serif;
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
     overflow-x:hidden;
 
@@ -42,7 +46,9 @@ body{
     animation:bgMotion 14s ease infinite;
 }
 
-/* BACKGROUND ANIMATION */
+/* =========================
+BACKGROUND ANIMATION
+========================= */
 
 @keyframes bgMotion{
 
@@ -60,22 +66,24 @@ body{
 
 }
 
-/* CURSOR GLOW */
+/* =========================
+CURSOR GLOW
+========================= */
 
 .cursor-glow{
 
     position:fixed;
 
-    width:350px;
-    height:350px;
+    width: 500px;;
+    height:500px;
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(0,247,255,0.18),
-            transparent 70%
+            rgba(0,247,255,0.22),
+            transparent 90%
         );
 
     pointer-events:none;
@@ -83,9 +91,13 @@ body{
     transform:translate(-50%,-50%);
 
     z-index:-1;
+
+    filter:blur(15px);
 }
 
-/* NAVBAR */
+/* =========================
+NAVBAR
+========================= */
 
 .navbar{
 
@@ -110,18 +122,76 @@ body{
     z-index:1000;
 }
 
+/* =========================
+LOGO
+========================= */
+
 .logo{
 
-    font-size:2rem;
+    display:flex;
+
+    align-items:center;
+
+    gap:2px;
+
+    font-size:2.3rem;
 
     font-weight:800;
 
     color:#00f7ff;
 
-    text-shadow:
-        0 0 15px rgba(0,247,255,0.5);
+    letter-spacing:0.5px;
+
+    line-height:1;
+
+    padding:0;
+
+    margin:0;
+
+    transform:translateY(-2px);
+
 }
 
+/* LOGO IMAGE */
+
+.logo-img{
+
+    width:75px;
+
+    height:75px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:0;
+
+    padding:0;
+
+    transform:translateY(1px);
+
+    filter:
+        drop-shadow(
+            0 0 12px rgba(0,247,255,0.8)
+        );
+
+}
+
+/* TEXT */
+
+.logo span{
+
+    display:flex;
+
+    align-items:center;
+
+    line-height:1;
+
+    margin:0;
+
+    padding:0;
+
+}
 .nav-links{
 
     display:flex;
@@ -154,12 +224,62 @@ body{
 
     display:none;
 
-    font-size:1.8rem;
+    font-size:2rem;
 
     cursor:pointer;
+
+    color:white;
+}
+/* THEME TOGGLE */
+
+.nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
 }
 
-/* HERO */
+.theme-toggle{
+
+    width:45px;
+    height:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    cursor:pointer;
+
+    font-size:1.2rem;
+
+    transition:0.3s ease;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.theme-toggle:hover{
+
+    transform:scale(1.1);
+
+    box-shadow:
+        0 0 15px rgba(0,247,255,0.4);
+
+}
+
+/* =========================
+HERO
+========================= */
 
 .hero{
 
@@ -183,6 +303,8 @@ body{
     flex:1;
 
     min-width:300px;
+
+    transition:0.2s ease-out;
 }
 
 .hero-left h3{
@@ -244,7 +366,9 @@ body{
     font-weight:500;
 }
 
-/* BUTTONS */
+/* =========================
+BUTTONS
+========================= */
 
 .hero-buttons{
 
@@ -267,7 +391,7 @@ body{
 
     font-weight:700;
 
-    transition:0.35s;
+    transition:0.25s ease-out;
 }
 
 .primary-btn{
@@ -301,7 +425,9 @@ body{
     color:black;
 }
 
-/* IMAGE */
+/* =========================
+IMAGE
+========================= */
 
 .hero-right{
 
@@ -310,6 +436,8 @@ body{
     display:flex;
 
     justify-content:center;
+
+    transition:0.2s ease-out;
 }
 
 .image-container{
@@ -332,7 +460,7 @@ body{
         0 0 70px rgba(255,0,212,0.15);
 
     transition:
-        transform 0.25s ease;
+        transform 0.15s ease-out;
 }
 
 .image-container img{
@@ -344,7 +472,9 @@ body{
     object-fit:cover;
 }
 
-/* SECTION */
+/* =========================
+SECTIONS
+========================= */
 
 section{
 
@@ -367,9 +497,13 @@ section{
         0 0 20px rgba(0,247,255,0.4);
 }
 
-/* ABOUT */
+/* =========================
+CARDS
+========================= */
 
-.about-container{
+.about-container,
+.project-grid,
+.contact-container{
 
     display:grid;
 
@@ -377,6 +511,16 @@ section{
         repeat(auto-fit,minmax(300px,1fr));
 
     gap:30px;
+}
+
+.skills-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
 }
 
 .about-card,
@@ -394,7 +538,7 @@ section{
 
     padding:40px;
 
-    transition:0.35s;
+    transition:0.2s ease-out;
 }
 
 .about-card:hover,
@@ -433,17 +577,9 @@ section{
     font-weight:500;
 }
 
-/* SKILLS */
-
-.skills-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(180px,1fr));
-
-    gap:25px;
-}
+/* =========================
+SKILLS
+========================= */
 
 .skill-card{
 
@@ -464,7 +600,7 @@ section{
 
     font-weight:800;
 
-    transition:0.35s;
+    transition:0.2s ease-out;
 }
 
 .skill-card:hover{
@@ -474,45 +610,36 @@ section{
         scale(1.05);
 }
 
-/* PROJECTS */
-
-.project-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(300px,1fr));
-
-    gap:30px;
-}
-
-/* CONTACT */
-
-.contact-container{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(250px,1fr));
-
-    gap:25px;
-}
+/* =========================
+CONTACT
+========================= */
 
 .contact-card{
 
     text-align:center;
+    
 }
 
-.contact-card i{
+/* =========================
+OFFLINE ICONS
+========================= */
 
-    font-size:2rem;
+.emoji-icon{
+
+    font-size:2.2rem;
 
     margin-bottom:20px;
 
-    color:#00f7ff;
+    filter:
+        drop-shadow(
+            0 0 10px rgba(0,247,255,0.5)
+        );
+
 }
 
-/* FOOTER */
+/* =========================
+FOOTER
+========================= */
 
 footer{
 
@@ -523,7 +650,9 @@ footer{
     color:#d0d0d0;
 }
 
-/* RESPONSIVE */
+/* =========================
+RESPONSIVE
+========================= */
 
 @media (max-width:992px){
 
@@ -616,35 +745,156 @@ footer{
     }
 
 }
-/* STRONGER MOTION EFFECTS*/
+/* REMOVE ICON LINK UNDERLINES */
 
-.hero-left,
-.hero-right,
-.image-container,
-.about-card,
-.project-card,
-.contact-card,
-.skill-card,
-.btn,
-.navbar{
+.contact-card a{
 
-    transition:
-        transform 0.18s ease-out;
+    text-decoration:none;
+
+    border:none;
+
+    outline:none;
+
+    color:inherit;
+
 }
 
-/* STRONGER GLOW */
+.contact-card a:hover{
 
-.cursor-glow{
+    text-decoration:none;
 
-    width:500px;
-    height:500px;
+}
+
+.emoji-icon{
+
+    display:inline-block;
+
+}
+/* LIGHT MODE */
+
+body.light-mode{
 
     background:
-        radial-gradient(
-            circle,
-            rgba(0,247,255,0.28),
-            transparent 70%
+        linear-gradient(
+            135deg,
+            #f4f7ff,
+            #dde7ff,
+            #eef3ff
         );
 
-    filter:blur(20px);
+    color:#111827;
+}
+
+/* LIGHT NAVBAR */
+
+body.light-mode .navbar{
+
+    background:rgba(255,255,255,0.7);
+
+}
+
+/* LIGHT TEXT */
+
+body.light-mode .hero-left h1,
+body.light-mode .hero-left p,
+body.light-mode .nav-links a,
+body.light-mode .about-card p,
+body.light-mode .project-card p,
+body.light-mode .family-card p,
+body.light-mode footer{
+
+    color:#111827;
+}
+
+/* LIGHT CARDS */
+
+body.light-mode .about-card,
+body.light-mode .project-card,
+body.light-mode .family-card,
+body.light-mode .contact-card{
+
+    background:rgba(255,255,255,0.65);
+
+    border:1px solid rgba(0,0,0,0.05);
+
+}
+
+/* LIGHT SKILLS */
+
+body.light-mode .skill-card{
+
+    color:white;
+}
+/* LIGHT MODE ACCENT FIXES */
+
+body.light-mode .logo{
+
+    color:#0077ff;
+
+    text-shadow:none;
+
+    
+
+}
+
+body.light-mode .section-title{
+
+    color:#0066ff;
+
+    text-shadow:none;
+
+}
+
+body.light-mode .hero-left h3{
+
+    color:#0077ff;
+}
+
+body.light-mode .hero-left h2{
+
+    color:#d600a9;
+
+    text-shadow:none;
+}
+
+/* CONTACT BUTTON FIX */
+
+body.light-mode .secondary-btn{
+
+    border:2px solid #0077ff;
+
+    color:#0077ff;
+
+    background:white;
+
+}
+
+body.light-mode .secondary-btn:hover{
+
+    background:#0077ff;
+
+    color:white;
+
+}
+
+/* NAVBAR HOVER */
+
+body.light-mode .nav-links a:hover{
+
+    color:#0077ff;
+
+    text-shadow:none;
+
+}
+
+/* TOGGLE BUTTON */
+
+body.light-mode .theme-toggle{
+
+    background:white;
+
+    color:#111827;
+
+    border:1px solid rgba(0,0,0,0.1);
+
 }
