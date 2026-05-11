@@ -898,60 +898,313 @@ body.light-mode .theme-toggle{
     border:1px solid rgba(0,0,0,0.1);
 
 }
-@media screen and (max-width: 768px) {
+/* =========================
+MOBILE FIX FINAL
+========================= */
 
-    nav {
-        padding: 15px 20px;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+@media (max-width:768px){
+
+    *{
+        max-width:100%;
     }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+    body{
+        overflow-x:hidden;
     }
 
-    .logo img {
-        width: 45px;
-        height: 45px;
+    /* NAVBAR */
+
+    .navbar{
+
+        padding:15px 20px;
+
     }
 
-    .logo h1 {
-        font-size: 22px;
+    .logo{
+
+        gap:8px;
+
     }
 
-    .nav-links {
-        display: none;
+    .logo-img{
+
+        width:45px;
+        height:45px;
+
     }
 
-    .theme-toggle {
-        width: 50px;
-        height: 50px;
+    .logo span{
+
+        font-size:2rem;
+
     }
 
-    .hero {
-        padding: 40px 20px;
-        text-align: center;
+    .theme-toggle{
+
+        width:42px;
+        height:42px;
+
+        font-size:1rem;
+
     }
 
-    .hero h1 {
-        font-size: 48px;
-        line-height: 1.1;
+    /* MOBILE MENU */
+
+    .nav-links{
+
+        position:fixed;
+
+        top:75px;
+        right:-100%;
+
+        width:220px;
+
+        height:100vh;
+
+        background:#0b1225;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        justify-content:flex-start;
+
+        gap:30px;
+
+        padding-top:60px;
+
+        transition:0.4s ease;
+
+        z-index:999;
+
     }
 
-    .hero p {
-        font-size: 18px;
-        line-height: 1.8;
+    .nav-links.active{
+
+        right:0;
+
     }
 
-    .hero-buttons {
-        flex-direction: column;
-        gap: 20px;
+    .menu-toggle{
+
+        display:block;
+
     }
 
-    .hero-buttons button {
-        width: 100%;
+    /* HERO */
+
+    .hero{
+
+        padding:
+            140px 20px
+            80px 20px;
+
+        gap:40px;
+
+        text-align:center;
+
     }
+
+    .hero-left{
+
+        width:100%;
+
+    }
+
+    .hero-left h1{
+
+        font-size:3rem;
+
+        line-height:1.1;
+
+        word-break:break-word;
+
+    }
+
+    .hero-left h2{
+
+        font-size:1.4rem;
+
+        min-height:auto;
+
+    }
+
+    .hero-left h3{
+
+        font-size:1.2rem;
+
+        letter-spacing:2px;
+
+    }
+
+    .hero-left p{
+
+        font-size:1rem;
+
+        line-height:1.9;
+
+        width:100%;
+
+    }
+
+    /* BUTTONS */
+
+    .hero-buttons{
+
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:18px;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+        max-width:320px;
+
+        text-align:center;
+
+        padding:16px 20px;
+
+        font-size:1rem;
+
+    }
+
+    /* IMAGE */
+
+    .hero-right{
+
+        width:100%;
+
+    }
+
+    .image-container{
+
+        width:260px;
+        height:330px;
+
+    }
+
+    /* SECTIONS */
+
+    section{
+
+        padding:80px 20px;
+
+    }
+
+    .section-title{
+
+        font-size:2.2rem;
+
+    }
+
+    /* CARDS */
+
+    .about-container,
+    .project-grid,
+    .contact-container,
+    .skills-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .about-card,
+    .project-card,
+    .family-card,
+    .contact-card{
+
+        width:100%;
+
+        padding:28px;
+
+        overflow:hidden;
+
+    }
+
+    .about-card h3,
+    .project-card h3{
+
+        font-size:1.3rem;
+
+        word-break:break-word;
+
+    }
+
+    .about-card p,
+    .project-card p,
+    .family-card p,
+    .contact-card p{
+
+        width:100%;
+
+        word-wrap:break-word;
+
+        overflow-wrap:break-word;
+
+        line-height:1.8;
+
+        font-size:1rem;
+
+    }
+
+    /* FIX GITHUB BUTTON OVERFLOW */
+
+    .project-card .btn,
+    .contact-card .btn{
+
+        width:100%;
+
+        max-width:100%;
+
+    }
+
+}
+
+/* EXTRA SMALL DEVICES */
+
+@media (max-width:480px){
+
+    .logo span{
+
+        font-size:1.6rem;
+
+    }
+
+    .hero-left h1{
+
+        font-size:2.4rem;
+
+    }
+
+    .hero-left h2{
+
+        font-size:1.1rem;
+
+    }
+
+    .hero-left p{
+
+        font-size:0.95rem;
+
+    }
+
+    .btn{
+
+        font-size:0.95rem;
+
+    }
+
+    .section-title{
+
+        font-size:1.8rem;
+
+    }
+
 }
